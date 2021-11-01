@@ -19,12 +19,13 @@ InsectSprays
 tipoA <- c(10, 7, 20, 14, 14, 12, 10, 23, 17, 20, 14, 13)
 tipoB <- c(11, 17, 21, 11, 16, 14, 17, 17, 19, 21, 7, 13)
 tipoC <- c(0, 1, 7, 2, 3, 1, 2, 1, 3, 0, 1, 4)
-tipoD <- c(3, 5, 12, 6, 4, 3, 5, 5, 5, 5, 2, 4)
+tipoD <- c(3, 5,12, 6, 4, 3, 5, 5, 5, 5, 2, 4)
 tipoE <- c(3, 5, 3, 5, 3, 6, 1, 1, 3, 2, 6, 4)
 tipoF <- c(11, 9, 15, 22, 15, 16, 13, 10, 26, 26, 24, 13)
-qqnorm(tipoF)
-qqline(tipoF)
+qqnorm(tipoD,pch=11)
+qqline(tipoD)
 sd(tipoF)
+
 I <- 6 # cantidad de grupos
 J <- 12 # cantidad de observaciones en cada grupo
 mediatotal <- mean(c(tipoA, tipoB, tipoC, tipoD, tipoE, tipoF))

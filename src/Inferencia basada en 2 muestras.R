@@ -10,16 +10,17 @@ p2<-0.4
 
 `p^`<-(x1+x2)/(m+n)
 `q^`<-(1-`p^`)
+delta0 <- p1-p2
 alpha<- 0.05/2
 
-zp<-(`p1^`-`p2^`)/sqrt(`p^`*`q^`*(1/m+1/n))
+zp<-(`p1^`-`p2^`)-delta0/sqrt(`p^`*`q^`*(1/m+1/n))
 zp
-colaizqP<- qt(alpha,g_lib)
-coladerP<-qt(alpha,g_lib,lower.tail = FALSE)
+colaizqP<- qnorm(alpha)
+coladerP<-qnorm(alpha,lower.tail = FALSE)
 
 
-
-probizq<-pnorm((colaizqP*sqrt(`p^`*`q^`*(1/m+1/n))-(p1-p2))/sqrt(`p^`*`q^`*(1/m+1/n)))
+delta1<- -0.2
+probizq<-pnorm(colaizqP-(delta1-delta0)/sqrt(p1*(1-p1)/m+p2*(1-p2)/n))
 probizq
 probder<-pnorm((coladerP*sqrt(`p^`*`q^`*(1/m+1/n))-(p1-p2))/sqrt(`p^`*`q^`*(1/m+1/n)))
 probder
@@ -40,16 +41,16 @@ arrows(colader,0.1,colader,0)
 text(colader,0.12,"cola der")
 
 
-delta0 <- -1
+delta0 <- -10
 alpha <- 0.01
 
-xraya <- 0.64
-s1 <- 0.200
-m <- 10
+xraya <- 115.7
+s1 <- 5.03
+m <- 6
 
-yraya <- 2.05
-s2 <- 0.4
-n <- 10
+yraya <- 129.3
+s2 <- 5.38
+n <- 6
 
 
 g_lib <- trunc((s1^2/m+s2^2/n)^2/(((s1^2/m)^2)/(m-1)+((s2^2/n)^2)/(n-1)))
@@ -69,13 +70,16 @@ colaizq
 colader <- qnorm(alpha,lower.tail = FALSE)
 colader
 
+delta1<- -1.2
+z.critico <- qnorm(alpha)
+beta <- pnorm(z.critico - (delta1-delta0) / sqrt((s1^2 / m) + (s2^2 / n)))
 
 colader <- coladerT
 colaizq<- colaizqT
 
 x1 <- seq(-5, 5, length = 500)
 y1 <- dnorm(x1, mean = 0, sd = 1)
-plot(x1, y1, col = "red", type = "l", ylim = c(0, 0.5))
+plot(x1, y1, col = "green", type = "l", ylim = c(0, 0.5))
 grid()
 arrows(z, 0.1, z, 0)
 text(z, 0.12, "z real")
