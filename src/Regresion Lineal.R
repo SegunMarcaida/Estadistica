@@ -25,4 +25,43 @@ modelo<-lm(porosidad~peso.unitario)
 modelo$coefficients
 abline(modelo)
 summary(modelo)
-xtest <- norm
+xtest <- rnorm(peso.unitario,mean(peso.unitario),sd(peso.unitario))
+shapiro.test(xtest)
+
+SCE <- sum(porosidad^2) - b0*sum(porosidad) - b1*sum(peso.unitario*porosidad)
+SCE
+s.sq <- SCE / (length(porosidad)-2)
+s.sq
+
+#7.2
+beta0 <- 1800
+beta1 <- 1.3
+x <- 2500
+beta0 + beta1*x
+
+#7.5
+library(datasets)
+#?airquality
+View(airquality)
+dim(airquality)
+
+modelo<-lm(airquality$Ozone~airquality$Solar.R)
+modelo$coefficients
+summary(modelo)
+
+library(datasets)
+#?airquality
+View(trees)
+dim(trees)
+modelo<-lm(trees$Volume~trees$Girth)
+modelo$coefficients
+summary(modelo)
+
+#metodo de minimos cuadrados
+numerador<-sum((trees$Volume-mean(trees$Volume))*(trees$Girth-mean(trees$Girth)))
+denominador<-sum((trees$Girth-mean(trees$Girth))^2)
+b1<-numerador/denominador
+b0<-mean(trees$Volume)-b1*mean(trees$Girth)
+b0
+b1
+

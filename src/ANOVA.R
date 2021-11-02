@@ -84,9 +84,9 @@ pvalue <- 1-pf(558,2,147)
 resultados <- c( 1.4,2.1,3.0,2.1,3.2,4.7,3.5,4.5,5.4 )
 grupos <- factor( c( 1,1,1,2,2,2,3,3,3 ))
 summary(aov(resultados ~ grupos))
-SCE <-7.936
-SCI<-6.5
-eta <-SCE/(SCI+SCE)
+STRC <-7.936
+SCE<-6.5
+eta <-STRC/(SCE+STRC)
 
 #6.7
 I <- 5
@@ -120,10 +120,10 @@ CME <- 23.39
 #6.14
 I <- 4
 J <- 6
-SCE <- 12.548
-SCI <- 1.147
-CMTr <- SCE / (I-1)
-CME <- SCI / (I * (J - 1))
+STRC <- 12.548
+SCE <- 1.147
+CMTr <- STRC / (I-1)
+CME <- SCE / (I * (J - 1))
 F <- CMTr / CME
 f.critico<- qf(1-0.05,I-1,J*(I-1))
 F>=f.critico
