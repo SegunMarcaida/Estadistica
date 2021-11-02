@@ -65,3 +65,7 @@ b0<-mean(trees$Volume)-b1*mean(trees$Girth)
 b0
 b1
 
+X <- c(20, 40, 60, 80)
+Y <- c(0.24, 1.20, 1.71, 2.22)
+modelo<-lm(Y~X)
+summary(modelo)
