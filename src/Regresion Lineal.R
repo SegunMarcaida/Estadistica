@@ -69,3 +69,23 @@ X <- c(20, 40, 60, 80)
 Y <- c(0.24, 1.20, 1.71, 2.22)
 modelo<-lm(Y~X)
 summary(modelo)
+
+#7.17
+
+x1 <- rnorm(10, mean = 80, sd = 10)
+x2 <- rnorm(10, mean = 70, sd = 5)
+x3 <- 2*x1+4*x2
+y1 <- 3+x1+x2+x3+rnorm(10, mean=0, sd=0.1)
+
+modelo1 <- lm(y1~x1+x2+x3)
+summary(modelo1)
+
+
+x1 <- rnorm(10, mean = 80, sd = 10)
+x2 <- rnorm(10, mean = 70, sd = 5)
+x3 <- 2*x1+4*x2+rnorm(10,0,0.1)
+
+y1 <- 3+x1+x2+x3 + rnorm(10, mean=0, sd=0.1)
+
+modelo2 = lm(y1~x1+x2+x3)
+summary(modelo2)

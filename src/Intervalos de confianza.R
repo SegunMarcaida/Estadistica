@@ -1,10 +1,11 @@
 alphaIC <- 0.05
-xraya <- 40.3
-s1 <- 11.3
-m <- 6
-yraya <- 21.4
-s2 <- 8.3
-n <- 8
+xraya <- 15
+s1 <- 2
+m <- 36
+
+yraya <- 14
+s2 <- 3
+n <- 35
 
 
 
@@ -47,11 +48,14 @@ intervaloizq
 
 x <- c(57.9, 66.2, 65.4, 65.4, 65.2, 62.6, 67.6, 63.7, 67.2, 71)
 y <- c(66.4, 71.7, 70.3, 69.3, 64.8, 69.6, 68.6, 69.4, 65.3, 68.8)
-s1 <- sd(x)
-s2 <-sd(y)
+s1 <- 2
+s2 <-3
 alpha <- 0.05
-m<-10
-n<-10
-limiteizq<- s1^2/s2^2*qf(alpha/2,m-1,n-1)
-limiteder<- s1^2/s2^2*qf(1-alpha/2,m-1,n-1)
+m<-36
+n<-35
+limiteizq<- s1^2/s2^2*(1/qf(1-alpha/2,m-1,n-1))
 
+limiteder<- s1^2/s2^2*(1/qf(alpha/2,m-1,n-1))
+
+limiteizq
+limiteder
